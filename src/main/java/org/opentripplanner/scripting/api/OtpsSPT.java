@@ -61,7 +61,7 @@ public class OtpsSPT {
      * @return The evualuated value, or NULL if no evaluation can be done (out of range, non snappable).
      */
     public OtpsEvaluatedIndividual eval(OtpsIndividual individual) {
-        return individual.eval(spt, sampleFactory);
+        return individual.eval(getSpt(), sampleFactory);
     }
 
     /**
@@ -88,7 +88,11 @@ public class OtpsSPT {
      * @return
      */
     public OtpsLatLon getSnappedOrigin() {
-        return new OtpsLatLon(spt.getOptions().rctx.origin.getLat(),
-                spt.getOptions().rctx.origin.getLon());
+        return new OtpsLatLon(getSpt().getOptions().rctx.origin.getLat(),
+                getSpt().getOptions().rctx.origin.getLon());
+    }
+
+    public ShortestPathTree getSpt() {
+        return spt;
     }
 }
