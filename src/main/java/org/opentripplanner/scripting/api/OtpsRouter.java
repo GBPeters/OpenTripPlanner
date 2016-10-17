@@ -60,4 +60,13 @@ public class OtpsRouter {
             return null;
         }
     }
+
+    /**
+     * For deeper access to OTP inner workings from an entry point
+     *
+     * @return the Router
+     */
+    public Router getRouter() {
+        return router;
+    }
 }
